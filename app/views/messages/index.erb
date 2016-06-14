@@ -1,9 +1,10 @@
-<font color="red"><h1>List of Messages </h1></font>
+<font color="blue"><h1>List of Messages </h1></font>
 <hr>
 
 <% @messages.each do |message| %>
 	<b>Title:</b> <%=message.title%><br>
 	<b>By:</b><font color="green"><%=message.author%></font><br>
 	<b>Content:</b><%=message.content%>
+	<h1><%=message.author%></h1>
 	<hr>
 <% end %>
