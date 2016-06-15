@@ -1,10 +1,13 @@
 <font color="blue"><h1>List of Messages </h1></font>
 <hr>
 
+
 <% @messages.each do |message| %>
+<h3><a href="/messages/<%= message.id %>"><%= message.title %></a> <small>(by: <%= message.author %>)</small></h3>
 	<b>Title:</b> <%=message.title%><br>
 	<b>By:</b><font color="green"><%=message.author%></font><br>
 	<b>Content:</b><%=message.content%>
-	<h1><%=message.author%></h1>
+
+	
 	<hr>
 <% end %>
