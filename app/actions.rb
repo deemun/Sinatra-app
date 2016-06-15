@@ -9,8 +9,9 @@ get '/messages' do
 	# @messages = Message.all
 	#@message = "Deepak is learning Sinatra"
 
-	@messages = Message.all
-	erb :'messages/index'
+	@meth = Message.all  #Active record object being transferred into a variable.
+	puts @meth.class
+	erb :'messages/index'  #this calls the template
 end
 
 
@@ -27,6 +28,22 @@ post '/messages' do  #accepting the form data and updating the messages table in
 	end
 end
 
+
+
+get '/messages/delete/:id' do	#You can call this whatever you want, API endpoints. symbols/params coming in must match table names
+	@m = Message.find(params[:id]) #Finding the exact message record to be deleted from database.
+	if @m.destroy 
+		redirect '/messages'
+	else
+		redirect 'www.google.com'
+	end
+
+
+
+end    
+	
+
+
 get '/messages/new' do
 	erb :'messages/new'
 end
@@ -35,3 +52,4 @@ get '/messages/:id' do
 	@message = Message.find(params[:id])
 	erb :'messages/show'
 end
+

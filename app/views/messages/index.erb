@@ -2,12 +2,13 @@
 <hr>
 
 
-<% @messages.each do |message| %>
+<% @meth.each do |message| %>
 <h3><a href="/messages/<%= message.id %>"><%= message.title %></a> <small>(by: <%= message.author %>)</small></h3>
 	<b>Title:</b> <%=message.title%><br>
 	<b>By:</b><font color="green"><%=message.author%></font><br>
 	<b>Content:</b><%=message.content%>
-
-	
+	<a class="btn btn-default" href="/messages/delete/<%=message.id%>"> DELETE</a>
+		<!-- HREF connects the method from actions to the button delete -->
+		<!-- make sure to add message id in the href, as html doesnt know :id. it needs a specific id. -->
 	<hr>
 <% end %>
